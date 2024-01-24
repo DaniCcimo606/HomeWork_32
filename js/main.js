@@ -24,7 +24,18 @@ const h1 = document.createElement('h1');
 h1.textContent = 'Всё для Серёжки';
 heading.appendChild(h1);
 const content = document.getElementById('content');
+const cubeWrap = document.createElement('div');
+cubeWrap.classList.add('cube--wrap');
+content.appendChild(cubeWrap);
 const cube = document.createElement('div');
+cube.classList.add('cube');
+cubeWrap.appendChild(cube);
+for (let i = 0; i < 6; i++) {
+    const arr = ['front', 'back', 'left', 'right', 'top', 'bottom'];
+    const side = document.createElement('div');
+    side.classList.add('side', arr[i]);
+    cube.appendChild(side);
+}
 const tabsList = document.createElement('ul');
 tabsList.classList.add('tabs__list');
 content.appendChild(tabsList);
@@ -74,16 +85,24 @@ const tabsContentArr = document.querySelectorAll('.tab-content__item');
 tabLinksArr.forEach((item) => {
     item.addEventListener('click', function (e) {
         e.preventDefault();
-        // console.log(item.getAttribute('href'));
         const tabContentHref = item.getAttribute('href').replace('#', '');
-        tabLinksArr.forEach((item) => {
-            item.classList.remove('target');
-        });
         tabsContentArr.forEach((item) => {
             item.classList.remove('show');
         });
-        item.classList.add('target');
         document.getElementById(tabContentHref).classList.add('show');
     });
-    document.querySelector('.tab__link').click();
+    $(function () {
+        $('.tab__link').click(function () {
+            tabLinksArr.forEach((item) => {
+                item.setAttribute('style', '');
+            });
+            $(this).css({
+                border: '0',
+                backgroundColor: 'transparent',
+            });
+        });
+    });
+    $(function () {
+        $('.tab__link')[0].click();
+    });
 });
