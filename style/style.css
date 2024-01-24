@@ -1,0 +1,109 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  grid-row-gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 35px;
+}
+.wrapper #logo {
+  position: relative;
+  display: inline-block;
+  margin-left: 50px;
+  cursor: pointer;
+}
+.wrapper #logo .logo__item {
+  padding: 50px;
+  border: 1px solid black;
+  background-color: #cfe2f3;
+}
+.wrapper #logo .logo__item:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(45deg);
+}
+.wrapper #logo .logo__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 24px;
+  transform: translate(-50%, -50%);
+}
+.wrapper #heading {
+  justify-self: center;
+  align-self: center;
+  padding-left: 12%;
+}
+.wrapper #heading h1 {
+  font-size: 50px;
+}
+.wrapper #content {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: grid;
+  grid-template-columns: 33% 66%;
+  grid-template-rows: repeat(2, auto);
+  border: 2px solid black;
+  background-color: #d9d2e9;
+}
+.wrapper #content .tabs__list .tab__item {
+  border-bottom: 2px solid black;
+}
+.wrapper #content .tabs__list .tab__item .tab__link {
+  display: block;
+  padding: 15px 0;
+  font-size: 24px;
+  text-decoration: none;
+  border-right: 2px solid black;
+  color: #000;
+  background-color: #cfe2f3;
+}
+.wrapper #content .tabs__list .tab__item .tab__link.target {
+  border-right: 0;
+  background-color: transparent;
+}
+.wrapper #content .footer {
+  grid-row-start: 2;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding: 150px 0 15px;
+  border-right: 2px solid black;
+  color: rgba(128, 128, 128, 0.466);
+  background-color: #cfe2f3;
+}
+.wrapper #content .tabs-content__list {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  padding: 15px 30px;
+}
+.wrapper #content .tabs-content__list .tab-content__item {
+  display: none;
+  font-size: 24px;
+}
+.wrapper #content .tabs-content__list .tab-content__item.show {
+  display: block;
+}
+.wrapper #content .tabs-content__list #item7 {
+  margin-top: 50px;
+  font-size: 350px;
+  text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper #content .tabs-content__list #item7 {
+    font-size: 125px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .wrapper #content .tabs-content__list .tab-content__item {
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=style.css.map */
